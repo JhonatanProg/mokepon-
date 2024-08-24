@@ -21,6 +21,31 @@ function selecionarMascotaJugador(){
     }else{
         alert("no selecioanste ninguna mascota")
     }
+
+    seleccionarMascotaEnemiga()
+
+    function seleccionarMascotaEnemiga(){
+        let ataqueAleatorio = aleatorio(1,3);
+        let spanMascotaEnemigo = document.getElementById("mascota-enemigo");
+
+        if(ataqueAleatorio == 1) {
+            spanMascotaEnemigo.innerHTML = "wizar"
+
+        } else if(ataqueAleatorio == 2) {
+            spanMascotaEnemigo.innerHTML = "jinx"
+
+        } else {
+            spanMascotaEnemigo.innerHTML = "luxor"
+
+        }
+     
+        
+
+    }
+
+    function aleatorio(min, max){
+        return Math.floor(Math.random() * (max - min + 1) + min)
+      }
 }
 
 window.addEventListener("load", iniciarJuego)
