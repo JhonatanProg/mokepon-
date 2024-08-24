@@ -5,17 +5,19 @@ function iniciarJuego(){
 }
 function selecionarMascotaJugador(){
     let inputwizar = document.getElementById("wizar");
-    let inputjinx = document.getElementById("jix");
+    let inputjinx = document.getElementById("jinx");
     let inputluxor = document.getElementById("luxor");
+    let spanMascotaJugador = document.getElementById("mascota-jugador");
+
 
 
 
     if (inputwizar.checked) {
-        alert("selecionaste Wizar")   
+        spanMascotaJugador.innerHTML = "wizar"
     } else if(inputjinx.checked) {
-        alert("selecionaste jinx")   
+         spanMascotaJugador.innerHTML = "jinx"
     }else if(inputluxor.checked) {
-        alert("selecionaste luxor")   
+         spanMascotaJugador.innerHTML = "luxor"
     }else{
         alert("no selecioanste ninguna mascota")
     }
