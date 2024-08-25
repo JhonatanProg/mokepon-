@@ -1,6 +1,20 @@
+let ataqueJugador
+let ataqueEnemigo
+
+
+
 function iniciarJuego(){
     let botonMascotaJugador = document.getElementById("boton-mascota")
     botonMascotaJugador.addEventListener("click", selecionarMascotaJugador)
+     
+    let botonFuego = document.getElementById("boton-fuego");
+    botonFuego.addEventListener("click", ataqueFuego)
+
+    let botonAgua = document.getElementById("boton-agua");
+    botonAgua.addEventListener("click", ataqueAgua)
+
+    let botonTierra = document.getElementById("boton-tierra");
+    botonTierra.addEventListener("click", ataqueTierra)
 
 }
 function selecionarMascotaJugador(){
@@ -25,13 +39,13 @@ function selecionarMascotaJugador(){
     seleccionarMascotaEnemiga()
 
     function seleccionarMascotaEnemiga(){
-        let ataqueAleatorio = aleatorio(1,3);
+        let mokemonAleatorio = aleatorio(1,3);
         let spanMascotaEnemigo = document.getElementById("mascota-enemigo");
 
-        if(ataqueAleatorio == 1) {
+        if(mokemonAleatorio == 1) {
             spanMascotaEnemigo.innerHTML = "wizar"
 
-        } else if(ataqueAleatorio == 2) {
+        } else if(mokemonAleatorio == 2) {
             spanMascotaEnemigo.innerHTML = "jinx"
 
         } else {
@@ -40,6 +54,33 @@ function selecionarMascotaJugador(){
         }
      
         
+
+    }
+
+    function ataqueFuego() {
+        ataqueJugador = "FUEGO"
+        ataqueAleatorioEnemigo()
+    }
+    function ataqueAgua() {
+        ataqueJugador = "AGUA"
+        ataqueAleatorioEnemigo()
+    }
+    function ataqueTierra() {
+        ataqueJugador = "TIERRA"
+        ataqueAleatorioEnemigo()
+    }
+    function ataqueAleatorioEnemigo() {
+        let ataqueAleatorio = aleatorio(1.3)
+        
+        if(ataqueAleatorio == 1) {
+            ataqueEnemigo = "FUEGO"
+        }
+        else if(ataqueAleatorio == 2) {
+            ataqueEnemigo = "AGUA"
+        }
+        else {
+            ataqueEnemigo = "TIERRA"
+        }
 
     }
 
