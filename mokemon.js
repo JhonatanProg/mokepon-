@@ -1,10 +1,15 @@
 let ataqueJugador;
 let ataqueEnemigo;
+let vidasJugador = 3;
+let vidasEnemigo = 3;
 
+//funcion para iniciar el juego al mismo 
 function iniciarJuego(){
     let botonMascotaJugador = document.getElementById("boton-mascota")
+// Este código le dice al botón de selección de mascota que, cuando el jugador haga clic en él, se ejecute la función seleccionarMascotaJugador. Esta función se encarga de gestionar la selección de la mascota del jugador.//
     botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador)
-     
+
+//obtine y asigna eventos a los botones de atque//    
     let botonFuego = document.getElementById("boton-fuego");
     botonFuego.addEventListener("click", ataqueFuego)
 
@@ -14,7 +19,7 @@ function iniciarJuego(){
     let botonTierra = document.getElementById("boton-tierra");
     botonTierra.addEventListener("click", ataqueTierra)
 }
-
+//definiendo funcion para que el enemigo elija una mascota y lo muestra en la pagina, obtiene los id de html con el elmento getelemnt..// 
 function seleccionarMascotaJugador(){
     let inputwizar = document.getElementById("wizar");
     let inputjinx = document.getElementById("jinx");
@@ -33,7 +38,7 @@ function seleccionarMascotaJugador(){
 
     seleccionarMascotaEnemiga();
 }
-
+//definiendo funcion para que el enemigo (PC) elija su mascota//
 function seleccionarMascotaEnemiga(){
     let mokemonAleatorio = aleatorio(1,3);
     let spanMascotaEnemigo = document.getElementById("mascota-enemigo");
@@ -46,7 +51,7 @@ function seleccionarMascotaEnemiga(){
         spanMascotaEnemigo.innerHTML = "luxor";
     }
 }
-
+//definiendo funciones para que el jugador elija su ataque//
 function ataqueFuego() {
     ataqueJugador = "FUEGO";
     ataqueAleatorioEnemigo();
@@ -61,7 +66,7 @@ function ataqueTierra() {
     ataqueJugador = "TIERRA";
     ataqueAleatorioEnemigo();
 }
-
+//definiedno funciones para que el enemigo (PC) elija su ataque aleatoriamente//
 function ataqueAleatorioEnemigo() {
     let ataqueAleatorio = aleatorio(1, 3);
 
@@ -72,21 +77,49 @@ function ataqueAleatorioEnemigo() {
     } else {
         ataqueEnemigo = "TIERRA";
     }
-
-    crearMensaje()
+//definiendo funcion para el combate PC VS JUgador//
+    combateMortal()
 }
+function combateMortal(){
+    let spanvidasJugador = document.getElementById("vidas-jugador");
+    let spanvidasEnemigo = document.getElementById("vidas-enemigo");
 
+    if(ataqueEnemigo == ataqueJugador) {
+        crearMensaje("EMPATE 🤝")
 
-function crearMensaje() {
+      }else if(ataqueJugador == "FUEGO" && ataqueEnemigo == "TIERRA"){
+        crearMensaje("GANASTE😎")
+         vidasEnemigo--
+         spanvidasEnemigo.innerHTML = vidasEnemigo
+
+      }else if(ataqueJugador == "AGUA" && ataqueEnemigo == "FUEGO"){
+        crearMensaje("GANASTE😎")
+         vidasEnemigo--
+         spanvidasEnemigo.innerHTML = vidasEnemigo
+         
+      }else if(ataqueJugador == "TIERRA" && ataqueEnemigo == "AGUA"){
+        crearMensaje("GANASTE😎") 
+         vidasEnemigo--
+         spanvidasEnemigo.innerHTML = vidasEnemigo
+         
+      }else{
+        crearMensaje("PERDISTE😢")
+        vidasJugador--
+        spanvidasJugador.innerHTML = vidasJugador
+        
+    }
+}
+//definiendo funcion para imprimir los mensajes en patalla sobre la elecion de los ataques enemigo VS PC //
+function crearMensaje(resultado) {
     let sectionMensajes = document.getElementById("mensajes");
 
     let parrafo = document.createElement("p")
-    parrafo.innerHTML =  "Tu mascota atacó con  " + ataqueJugador + "     la mascota del enemigo ataco con  " + ataqueEnemigo + "  ganador pendiente"
+    parrafo.innerHTML =  "Tu mascota atacó con  " + ataqueJugador + "     la mascota del enemigo ataco con  " + ataqueEnemigo + "  ganador pendiente" +" " + resultado
 
     sectionMensajes.appendChild(parrafo)
 
 }
-
+//definiendo funcion para aleatoriedad en invocarla cuando la necesitemos//
 function aleatorio(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
