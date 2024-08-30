@@ -66,7 +66,7 @@ function ataqueTierra() {
     ataqueJugador = "TIERRA";
     ataqueAleatorioEnemigo();
 }
-//definiedno funciones para que el enemigo (PC) elija su ataque aleatoriamente//
+//definiedno funciones para que el enemigo (PC) elija su ataque aleatoriamente y generando conatdor de vidas//
 function ataqueAleatorioEnemigo() {
     let ataqueAleatorio = aleatorio(1, 3);
 
@@ -77,7 +77,7 @@ function ataqueAleatorioEnemigo() {
     } else {
         ataqueEnemigo = "TIERRA";
     }
-//definiendo funcion para el combate PC VS JUgador//
+//definiendo funcion para el combate PC VS JUgador y genrando contador de vidas//
     combateMortal()
 }
 function combateMortal(){
@@ -106,19 +106,45 @@ function combateMortal(){
         crearMensaje("PERDISTE😢")
         vidasJugador--
         spanvidasJugador.innerHTML = vidasJugador
+
+     
         
     }
+    
+    revisarVidas();
 }
+  
+//creando funcion para revisar vidas//
+
+function revisarVidas(){
+    if(vidasEnemigo == 0){
+       crearMensajeFinal = "FELICITACIONES GANASTE 😎"
+    }else if(vidasJugador == 0){
+        crearMensajeFinal = "MALA RACHA PERDISTE 😢"
+    }
+}
+
+
 //definiendo funcion para imprimir los mensajes en patalla sobre la elecion de los ataques enemigo VS PC //
 function crearMensaje(resultado) {
     let sectionMensajes = document.getElementById("mensajes");
 
     let parrafo = document.createElement("p")
-    parrafo.innerHTML =  "Tu mascota atacó con  " + ataqueJugador + "     la mascota del enemigo ataco con  " + ataqueEnemigo + "  ganador pendiente" +" " + resultado
+    parrafo.innerHTML =  "Tu mascota atacó con  " + ataqueJugador + "     la mascota del enemigo ataco con  " + ataqueEnemigo +" " + resultado
 
     sectionMensajes.appendChild(parrafo)
 
 }
+function crearMensajeFinal(resultadoFinal) {
+    let sectionMensajes = document.getElementById("mensajes");
+
+    let parrafo = document.createElement("p")
+    parrafo.innerHTML =  resultadoFinal
+
+    sectionMensajes.appendChild(parrafo)
+
+}
+
 //definiendo funcion para aleatoriedad en invocarla cuando la necesitemos//
 function aleatorio(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min);
