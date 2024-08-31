@@ -5,9 +5,18 @@ let vidasEnemigo = 3;
 
 //funcion para iniciar el juego al mismo 
 function iniciarJuego(){
+    let sectionseleccionarAtaque = document.getElementById("seleccionar-ataque");
+    sectionseleccionarAtaque.style.display = "none"
+
+    let sectionReiniciar = document.getElementById("reiniciar")
+    sectionReiniciar.style.display = "none"
+    
+
     let botonMascotaJugador = document.getElementById("boton-mascota")
 // Este código le dice al botón de selección de mascota que, cuando el jugador haga clic en él, se ejecute la función seleccionarMascotaJugador. Esta función se encarga de gestionar la selección de la mascota del jugador.//
     botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador)
+
+    
 
 //obtine y asigna eventos a los botones de atque//    
     let botonFuego = document.getElementById("boton-fuego");
@@ -19,12 +28,19 @@ function iniciarJuego(){
     let botonTierra = document.getElementById("boton-tierra");
     botonTierra.addEventListener("click", ataqueTierra)
 
-    let botonReiniciar = document.getElementById("reiniciar")
-    botonReiniciar.style.display = "none";
+    let botonReiniciar = document.getElementById("boton-reiniciar")
+    botonReiniciar.addEventListener("click", reiniciarJuego);
 
 }
 //definiendo funcion para que el enemigo elija una mascota y lo muestra en la pagina, obtiene los id de html con el elmento getelemnt..// 
 function seleccionarMascotaJugador(){
+    let sectionseleccionarMascota = document.getElementById("seleccionar-mascota");
+    sectionseleccionarMascota.style.display = "none"
+
+
+    let sectionseleccionarAtaque = document.getElementById("seleccionar-ataque");
+    sectionseleccionarAtaque.style.display = "block"
+    
     let inputwizar = document.getElementById("wizar");
     let inputjinx = document.getElementById("jinx");
     let inputluxor = document.getElementById("luxor");
@@ -165,6 +181,10 @@ function crearMensajeFinal(resultadoFinal) {
 
     let botonTierra = document.getElementById("boton-tierra");
     botonTierra.disabled = true
+
+    let sectionReiniciar = document.getElementById("reiniciar");
+    sectionReiniciar.style.display = "block"
+    
 
     
 }
