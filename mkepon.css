@@ -1,15 +1,54 @@
-h1 {
-    color: blue;
-}
-.title {
-    color: brown;
-    width: 315px;
-    height: 50px;
-    background-color: burlywood;
+
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
+body{
+    font-family: "Philosopher", sans-serif;
+    background-color: #4B70F5;
 }
 #seleccionar-mascota {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.title {
+    color: white;
+    font-size: 50px;
+}
+.subtitulo{
+    color: white;
+    font-size: 35px;
+
+}
+
+.tarjetas {
+    display: flex;
+    gap: 10px;
+}
+.tarjeta-mokepon {
+    width: 125px;
+    height: 110px;
+    background: #E2E2B6;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tarjeta-mokepon img{
+    width: 75px;
+}
+#boton-mascota{
+    width: 180px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #BED754;
+    border: 2px solid white;
+    font-family: "Shrikhand", serif;
+    margin-top: 30px;
+
+}
+input {
+    display: none;
 }
