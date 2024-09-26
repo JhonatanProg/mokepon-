@@ -7,3 +7,18 @@ h1 {
     height: 50px;
     background-color: burlywood;
 }
+label {
+    background-color: chocolate;
+    width: 315px;
+    height: 50px;
+}
+input {
+    background-color: bisque;
+    width: 315px;
+    height: 50px;
+}
+button {
+    background-color: aquamarine;
+    width: 315px;
+    height: 50px;
+}
