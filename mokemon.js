@@ -39,7 +39,7 @@ function seleccionarMascotaJugador(){
 
 
     let sectionseleccionarAtaque = document.getElementById("seleccionar-ataque");
-    sectionseleccionarAtaque.style.display = "block"
+    sectionseleccionarAtaque.style.display = "flex"
     
     let inputwizar = document.getElementById("wizar");
     let inputjinx = document.getElementById("jinx");
