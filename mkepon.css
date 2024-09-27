@@ -79,3 +79,7 @@ input {
     color: blueviolet;
     font-family: "Philosopher", sans-serif;
 }
+.combate-resulatdo{
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
