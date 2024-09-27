@@ -65,3 +65,17 @@ input {
     width: 100px;
     font-family: "Philosopher", sans-serif;
 }
+#mensajes {
+    width: 280px;
+    background: #BED754;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    flex-direction: column;
+}
+#boton-reiniciar {
+    border: transparent;
+    color: blueviolet;
+    font-family: "Philosopher", sans-serif;
+}

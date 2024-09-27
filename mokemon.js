@@ -157,21 +157,30 @@ function revisarVidas(){
 
 //definiendo funcion para imprimir los mensajes en patalla sobre la elecion de los ataques enemigo VS PC //
 function crearMensaje(resultado) {
-    let sectionMensajes = document.getElementById("mensajes");
+    let sectionMensajes = document.getElementById("resultado");
+    let ataqueDelJugador = document.getElementById("ataque-del-Jugador");
+    let ataqueDelEnemigo = document.getElementById("ataque-del-Enemigo");
+    let notificacion = document.createElement("p")
+    let nuevoAtaqueDelJugador = document.createElement("p")
+    let nuevoAtaqueDelenemigo = document.createElement("p")
 
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML =  "Tu mascota atacó con  " + ataqueJugador + "     la mascota del enemigo ataco con  " + ataqueEnemigo +" " + resultado
+    sectionMensajes.innerHTML = resultado
+    nuevoAtaqueDelJugador.innerHTML = ataqueJugador
+    nuevoAtaqueDelenemigo.innerHTML = ataqueEnemigo
+    
 
-    sectionMensajes.appendChild(parrafo)
+    // let parrafo = document.createElement("p")
+    // parrafo.innerHTML =  "Tu mascota atacó con  " + ataqueJugador + "     la mascota del enemigo ataco con  " + ataqueEnemigo +" " + resultado
+
+   
+    ataqueDelJugador.appendChild(nuevoAtaqueDelJugador)
+    ataqueDelEnemigo.appendChild(nuevoAtaqueDelenemigo)
 
 }
 function crearMensajeFinal(resultadoFinal) {
-    let sectionMensajes = document.getElementById("mensajes");
+    let sectionMensajes = document.getElementById("resultado");
 
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML =  resultadoFinal
-
-    sectionMensajes.appendChild(parrafo)
+    sectionMensajes.innerHTML = resultadoFinal
 
     let botonFuego = document.getElementById("boton-fuego");
     botonFuego.disabled = true
