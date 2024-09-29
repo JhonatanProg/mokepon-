@@ -33,6 +33,7 @@ class Mokepon{
         this.nombre = nombre
         this.foto = foto
         this.vida = vida
+        this.ataques = []
     }
 }
 
@@ -42,10 +43,31 @@ let jinx = new Mokepon('jinx', './imagenes pokemones/mokepons_mokepon_hipodoge_a
 
 let luxor = new Mokepon('luxor', './imagenes pokemones/mokepons_mokepon_ratigueya_attack.webp', 5)
 
-mokepones.push(wizar,jinx,luxor)
+wizar.ataques.push(
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '⛰️', id: 'boton-tierra'},
+)
 
-console.log(mokepones)
+jinx.ataques.push(
+    {nombre: '⛰️', id: 'boton-tierra'},
+    {nombre: '⛰️', id: 'boton-tierra'},
+    {nombre: '⛰️', id: 'boton-tierra'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '💧', id: 'boton-agua'},
 
+)
+
+luxor.ataques.push(
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '⛰️', id: 'boton-tierra'},
+    {nombre: '💧', id: 'boton-agua'},
+
+)
 //funcion para iniciar el juego al mismo 
 function iniciarJuego(){
     
@@ -118,7 +140,6 @@ function ataqueAleatorioEnemigo() {
     combateMortal()
 }
 function combateMortal(){
-    
 
     if(ataqueEnemigo == ataqueJugador) {
         crearMensaje("EMPATE 🤝")
@@ -157,13 +178,12 @@ function revisarVidas(){
         crearMensajeFinal("MALA RACHA PERDISTE 😢")  
         mostrarBotonReiniciar();
     }
-
-   }
+}
    
    function mostrarBotonReiniciar(){
     let botonReiniciar = document.getElementById("boton-reiniciar");
     botonReiniciar.style.display = "block"
-   }
+}
     
 //definiendo funcion para imprimir los mensajes en patalla sobre la elecion de los ataques enemigo VS PC //
 function crearMensaje(resultado) {
@@ -175,12 +195,8 @@ function crearMensaje(resultado) {
     sectionMensajes.innerHTML = resultado
     nuevoAtaqueDelJugador.innerHTML = ataqueJugador
     nuevoAtaqueDelenemigo.innerHTML = ataqueEnemigo
-    
-
     // let parrafo = document.createElement("p")
     // parrafo.innerHTML =  "Tu mascota atacó con  " + ataqueJugador + "     la mascota del enemigo ataco con  " + ataqueEnemigo +" " + resultado
-
-   
     ataqueDelJugador.appendChild(nuevoAtaqueDelJugador)
     ataqueDelEnemigo.appendChild(nuevoAtaqueDelenemigo)
 
