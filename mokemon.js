@@ -22,7 +22,7 @@ const sectionMensajes = document.getElementById("resultado");
 const ataqueDelJugador = document.getElementById("ataque-del-Jugador");
 const ataqueDelEnemigo = document.getElementById("ataque-del-Enemigo");
 
-
+let mokepones = []
 let ataqueJugador;
 let ataqueEnemigo;
 let vidasJugador = 3;
@@ -41,6 +41,10 @@ let wizar = new Mokepon('wizar', './imagenes pokemones/mokepons_mokepon_capipepo
 let jinx = new Mokepon('jinx', './imagenes pokemones/mokepons_mokepon_hipodoge_attack.webp', 5) 
 
 let luxor = new Mokepon('luxor', './imagenes pokemones/mokepons_mokepon_ratigueya_attack.webp', 5)
+
+mokepones.push(wizar,jinx,luxor)
+
+console.log(mokepones)
 
 //funcion para iniciar el juego al mismo 
 function iniciarJuego(){
@@ -139,8 +143,6 @@ function combateMortal(){
         vidasJugador--
         spanvidasJugador.innerHTML = vidasJugador
 
-     
-        
     }
     
     revisarVidas();
@@ -163,10 +165,6 @@ function revisarVidas(){
     botonReiniciar.style.display = "block"
    }
     
-
-
-
-
 //definiendo funcion para imprimir los mensajes en patalla sobre la elecion de los ataques enemigo VS PC //
 function crearMensaje(resultado) {
     
