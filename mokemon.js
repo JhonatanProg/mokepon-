@@ -1,3 +1,28 @@
+const sectionseleccionarAtaque = document.getElementById("seleccionar-ataque");
+const sectionReiniciar = document.getElementById("reiniciar")
+const botonMascotaJugador = document.getElementById("boton-mascota")
+const botonFuego = document.getElementById("boton-fuego");
+sectionReiniciar.style.display = "none"
+const botonAgua = document.getElementById("boton-agua");
+const botonTierra = document.getElementById("boton-tierra");
+const botonReiniciar = document.getElementById("boton-reiniciar")
+const sectionseleccionarMascota = document.getElementById       ("seleccionar-mascota");
+const inputwizar = document.getElementById("wizar");
+const inputjinx = document.getElementById("jinx");
+const inputluxor = document.getElementById("luxor");
+
+const spanMascotaJugador = document.getElementById
+("mascota-jugador");
+const spanMascotaEnemigo = document.getElementById("mascota-enemigo");
+
+const spanvidasJugador = document.getElementById("vidas-jugador");
+const spanvidasEnemigo = document.getElementById("vidas-enemigo");
+
+const sectionMensajes = document.getElementById("resultado");
+const ataqueDelJugador = document.getElementById("ataque-del-Jugador");
+const ataqueDelEnemigo = document.getElementById("ataque-del-Enemigo");
+
+
 let ataqueJugador;
 let ataqueEnemigo;
 let vidasJugador = 3;
@@ -5,47 +30,22 @@ let vidasEnemigo = 3;
 
 //funcion para iniciar el juego al mismo 
 function iniciarJuego(){
-    let sectionseleccionarAtaque = document.getElementById("seleccionar-ataque");
+    
     sectionseleccionarAtaque.style.display = "none"
-
-    let sectionReiniciar = document.getElementById("reiniciar")
-    sectionReiniciar.style.display = "none"
-    
-
-    let botonMascotaJugador = document.getElementById("boton-mascota")
-// Este código le dice al botón de selección de mascota que, cuando el jugador haga clic en él, se ejecute la función seleccionarMascotaJugador. Esta función se encarga de gestionar la selección de la mascota del jugador.//
     botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador)
-
-    
-
 //obtine y asigna eventos a los botones de atque//    
-    let botonFuego = document.getElementById("boton-fuego");
     botonFuego.addEventListener("click", ataqueFuego)
-
-    let botonAgua = document.getElementById("boton-agua");
     botonAgua.addEventListener("click", ataqueAgua)
-
-    let botonTierra = document.getElementById("boton-tierra");
     botonTierra.addEventListener("click", ataqueTierra)
-
-    let botonReiniciar = document.getElementById("boton-reiniciar")
     botonReiniciar.addEventListener("click", reiniciarJuego);
 
 }
 //definiendo funcion para que el enemigo elija una mascota y lo muestra en la pagina, obtiene los id de html con el elmento getelemnt..// 
 function seleccionarMascotaJugador(){
-    let sectionseleccionarMascota = document.getElementById("seleccionar-mascota");
+    
     sectionseleccionarMascota.style.display = "none"
-
-
-    let sectionseleccionarAtaque = document.getElementById("seleccionar-ataque");
     sectionseleccionarAtaque.style.display = "flex"
     
-    let inputwizar = document.getElementById("wizar");
-    let inputjinx = document.getElementById("jinx");
-    let inputluxor = document.getElementById("luxor");
-    let spanMascotaJugador = document.getElementById("mascota-jugador");
-
     if (inputwizar.checked) {
         spanMascotaJugador.innerHTML = "wizar";
     } else if(inputjinx.checked) {
@@ -61,8 +61,7 @@ function seleccionarMascotaJugador(){
 //definiendo funcion para que el enemigo (PC) elija su mascota//
 function seleccionarMascotaEnemiga(){
     let mokemonAleatorio = aleatorio(1,3);
-    let spanMascotaEnemigo = document.getElementById("mascota-enemigo");
-
+    
     if(mokemonAleatorio == 1) {
         spanMascotaEnemigo.innerHTML = "wizar";
     } else if(mokemonAleatorio == 2) {
@@ -101,8 +100,7 @@ function ataqueAleatorioEnemigo() {
     combateMortal()
 }
 function combateMortal(){
-    let spanvidasJugador = document.getElementById("vidas-jugador");
-    let spanvidasEnemigo = document.getElementById("vidas-enemigo");
+    
 
     if(ataqueEnemigo == ataqueJugador) {
         crearMensaje("EMPATE 🤝")
@@ -157,9 +155,7 @@ function revisarVidas(){
 
 //definiendo funcion para imprimir los mensajes en patalla sobre la elecion de los ataques enemigo VS PC //
 function crearMensaje(resultado) {
-    let sectionMensajes = document.getElementById("resultado");
-    let ataqueDelJugador = document.getElementById("ataque-del-Jugador");
-    let ataqueDelEnemigo = document.getElementById("ataque-del-Enemigo");
+    
     let notificacion = document.createElement("p")
     let nuevoAtaqueDelJugador = document.createElement("p")
     let nuevoAtaqueDelenemigo = document.createElement("p")
@@ -178,23 +174,12 @@ function crearMensaje(resultado) {
 
 }
 function crearMensajeFinal(resultadoFinal) {
-    let sectionMensajes = document.getElementById("resultado");
-
-    sectionMensajes.innerHTML = resultadoFinal
-
-    let botonFuego = document.getElementById("boton-fuego");
-    botonFuego.disabled = true
-
-    let botonAgua = document.getElementById("boton-agua");
-    botonAgua.disabled = true
-
-    let botonTierra = document.getElementById("boton-tierra");
-    botonTierra.disabled = true
-
-    let sectionReiniciar = document.getElementById("reiniciar");
-    sectionReiniciar.style.display = "block"
     
-
+    sectionMensajes.innerHTML = resultadoFinal
+    botonFuego.disabled = true
+    botonAgua.disabled = true
+    botonTierra.disabled = true
+    sectionReiniciar.style.display = "block"
     
 }
 function reiniciarJuego(){
