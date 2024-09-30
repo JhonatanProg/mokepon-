@@ -21,10 +21,12 @@ const spanvidasEnemigo = document.getElementById("vidas-enemigo");
 const sectionMensajes = document.getElementById("resultado");
 const ataqueDelJugador = document.getElementById("ataque-del-Jugador");
 const ataqueDelEnemigo = document.getElementById("ataque-del-Enemigo");
+const contenedorTarjetas = document.getElementById('contenedorTarjetas')
 
 let mokepones = []
 let ataqueJugador;
 let ataqueEnemigo;
+let opcionDeMokepones;
 let vidasJugador = 3;
 let vidasEnemigo = 3;
 
@@ -68,10 +70,26 @@ luxor.ataques.push(
     {nombre: '💧', id: 'boton-agua'},
 
 )
+mokepones.push(wizar,jinx,luxor)
+
+
 //funcion para iniciar el juego al mismo 
 function iniciarJuego(){
     
     sectionseleccionarAtaque.style.display = "none"
+
+    mokepones.forEach((Mokepon) => {
+        opcionDeMokepones = `
+         <input type="radio" name="mascota" id=${Mokepon.nombre}/>
+                <label class="tarjeta-mokepon" for=${Mokepon.nombre}>
+                    <p>${Mokepon.nombre}</p>
+                    <img src=${Mokepon.foto} alt=${Mokepon.nombre}>
+                </label>
+        `
+        contenedorTarjetas.innerHTML += opcionDeMokepones
+      
+    })
+
     botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador)
 //obtine y asigna eventos a los botones de atque//    
     botonFuego.addEventListener("click", ataqueFuego)
