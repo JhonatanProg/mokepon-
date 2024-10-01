@@ -21,7 +21,7 @@ const spanvidasEnemigo = document.getElementById("vidas-enemigo");
 const sectionMensajes = document.getElementById("resultado");
 const ataqueDelJugador = document.getElementById("ataque-del-Jugador");
 const ataqueDelEnemigo = document.getElementById("ataque-del-Enemigo");
-const contenedorTarjetas = document.getElementById('contenedorTarjetas')
+const contenedorTarjetas = document.getElementById("contenedorTarjetas")
 
 let mokepones = []
 let ataqueJugador;
@@ -39,11 +39,11 @@ class Mokepon{
     }
 }
 
-let wizar = new Mokepon('wizar', './imagenes pokemones/mokepons_mokepon_capipepo_attack.webp', 5)
+let wizar = new Mokepon('wizar', './imagenes pokemones/mokepons_mokepon_capipepo_attack.jpg', 5)
 
-let jinx = new Mokepon('jinx', './imagenes pokemones/mokepons_mokepon_hipodoge_attack.webp', 5) 
+let jinx = new Mokepon('jinx', './imagenes pokemones/mokepons_mokepon_hipodoge_attack.jpg', 5) 
 
-let luxor = new Mokepon('luxor', './imagenes pokemones/mokepons_mokepon_ratigueya_attack.webp', 5)
+let luxor = new Mokepon('luxor', './imagenes pokemones/mokepons_mokepon_ratigueya_attack.jpg', 5)
 
 wizar.ataques.push(
     {nombre: '💧', id: 'boton-agua'},
@@ -79,8 +79,14 @@ function iniciarJuego(){
     sectionseleccionarAtaque.style.display = "none"
 
     mokepones.forEach((Mokepon) => {
-       
-      console.log(Mokepon)
+       opcionDeMokepones = `
+       <input type="radio" name="mascota" id=${Mokepon.nombre} />
+        <label class="tarjeta-mokepon" for=${Mokepon.nombre}>
+            <p>${Mokepon.nombre}</p>
+            <img src= ${Mokepon.foto} alt=${Mokepon.nombre}>
+        </label>
+       `
+      contenedorTarjetas.innerHTML += opcionDeMokepones
     })
 
     botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador)
