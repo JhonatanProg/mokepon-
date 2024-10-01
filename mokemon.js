@@ -79,15 +79,8 @@ function iniciarJuego(){
     sectionseleccionarAtaque.style.display = "none"
 
     mokepones.forEach((Mokepon) => {
-        opcionDeMokepones = `
-         <input type="radio" name="mascota" id=${Mokepon.nombre}/>
-                <label class="tarjeta-mokepon" for=${Mokepon.nombre}>
-                    <p>${Mokepon.nombre}</p>
-                    <img src=${Mokepon.foto} alt=${Mokepon.nombre}>
-                </label>
-        `
-        contenedorTarjetas.innerHTML += opcionDeMokepones
-      
+       
+      console.log(Mokepon)
     })
 
     botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador)
