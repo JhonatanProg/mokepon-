@@ -7,9 +7,7 @@ const botonAgua = document.getElementById("boton-agua");
 const botonTierra = document.getElementById("boton-tierra");
 const botonReiniciar = document.getElementById("boton-reiniciar")
 const sectionseleccionarMascota = document.getElementById       ("seleccionar-mascota");
-const inputwizar = document.getElementById("wizar");
-const inputjinx = document.getElementById("jinx");
-const inputluxor = document.getElementById("luxor");
+
 
 const spanMascotaJugador = document.getElementById
 ("mascota-jugador");
@@ -27,6 +25,9 @@ let mokepones = []
 let ataqueJugador;
 let ataqueEnemigo;
 let opcionDeMokepones;
+let inputjinx;
+let inputwizar; 
+let inputluxor;
 let vidasJugador = 3;
 let vidasEnemigo = 3;
 
@@ -87,6 +88,10 @@ function iniciarJuego(){
         </label>
        `
       contenedorTarjetas.innerHTML += opcionDeMokepones
+
+        inputjinx = document.getElementById("jinx");
+        inputwizar = document.getElementById("wizar");
+        inputluxor = document.getElementById("luxor");
     })
 
     botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador)
