@@ -6,7 +6,7 @@ sectionReiniciar.style.display = "none"
 const botonAgua = document.getElementById("boton-agua");
 const botonTierra = document.getElementById("boton-tierra");
 const botonReiniciar = document.getElementById("boton-reiniciar")
-const sectionseleccionarMascota = document.getElementById       ("seleccionar-mascota");
+const sectionseleccionarMascota = document.getElementById("seleccionar-mascota");
 
 
 const spanMascotaJugador = document.getElementById
@@ -110,11 +110,11 @@ function seleccionarMascotaJugador(){
     sectionseleccionarAtaque.style.display = "flex"
     
     if (inputwizar.checked) {
-        spanMascotaJugador.innerHTML = "wizar";
+        spanMascotaJugador.innerHTML = inputwizar.id
     } else if(inputjinx.checked) {
-         spanMascotaJugador.innerHTML = "jinx";
+         spanMascotaJugador.innerHTML = inputjinx.id
     } else if(inputluxor.checked) {
-         spanMascotaJugador.innerHTML = "luxor";
+         spanMascotaJugador.innerHTML = inputluxor.id
     } else {
         alert("No seleccionaste ninguna mascota");
     }
