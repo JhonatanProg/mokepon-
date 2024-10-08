@@ -40,11 +40,12 @@ class Mokepon{
     }
 }
 
-let wizar = new Mokepon('wizar', './imagenes pokemones/mokepons_mokepon_capipepo_attack.jpg', 5)
+let wizar = new Mokepon('wizar', './imagenes pokemones/mokepons_mokepon_capipepo_attack.png', 5)
 
-let jinx = new Mokepon('jinx', './imagenes pokemones/mokepons_mokepon_hipodoge_attack.jpg', 5) 
 
-let luxor = new Mokepon('luxor', './imagenes pokemones/mokepons_mokepon_ratigueya_attack.jpg', 5)
+let jinx = new Mokepon('jinx', './imagenes pokemones/mokepons_mokepon_hipodoge_attack.png', 5) 
+
+let luxor = new Mokepon('luxor', './imagenes pokemones/mokepons_mokepon_ratigueya_attack.png', 5)
 
 wizar.ataques.push(
     {nombre: '💧', id: 'boton-agua'},
