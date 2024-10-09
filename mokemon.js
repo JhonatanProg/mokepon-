@@ -123,15 +123,9 @@ function seleccionarMascotaJugador(){
 }
 //definiendo funcion para que el enemigo (PC) elija su mascota//
 function seleccionarMascotaEnemiga(){
-    let mokemonAleatorio = aleatorio(1,3);
+    let mokemonAleatorio = aleatorio(0, mokepones.length -1);
     
-    if(mokemonAleatorio == 1) {
-        spanMascotaEnemigo.innerHTML = "wizar";
-    } else if(mokemonAleatorio == 2) {
-        spanMascotaEnemigo.innerHTML = "jinx";
-    } else {
-        spanMascotaEnemigo.innerHTML = "luxor";
-    }
+    spanMascotaEnemigo.innerHTML =  mokepones[ mokemonAleatorio] .nombre
 }
 //definiendo funciones para que el jugador elija su ataque//
 function ataqueFuego() {
