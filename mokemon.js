@@ -28,6 +28,7 @@ let opcionDeMokepones;
 let inputjinx;
 let inputwizar; 
 let inputluxor;
+let mascotaJugador;
 let vidasJugador = 3;
 let vidasEnemigo = 3;
 
@@ -111,16 +112,33 @@ function seleccionarMascotaJugador(){
     
     if (inputwizar.checked) {
         spanMascotaJugador.innerHTML = inputwizar.id
+        mascotaJugador = inputwizar.id
     } else if(inputjinx.checked) {
          spanMascotaJugador.innerHTML = inputjinx.id
+         mascotaJugador = inputjinx.id
     } else if(inputluxor.checked) {
          spanMascotaJugador.innerHTML = inputluxor.id
+         mascotaJugador = inputluxor.id
     } else {
         alert("No seleccionaste ninguna mascota");
     }
-
+    extraerAtaques(mascotaJugador)
     seleccionarMascotaEnemiga();
+
 }
+function extraerAtaques(mascotaJugador) {
+        let ataques
+        for (let i = 0; i < mokepones.length; i++) {
+            if (mascotaJugador === mokepones[i].nombre) {
+                ataques = mokepones[i].ataques
+
+            }
+        }
+        mostraAtaques(ataques)
+    }
+
+    
+
 //definiendo funcion para que el enemigo (PC) elija su mascota//
 function seleccionarMascotaEnemiga(){
     let mokemonAleatorio = aleatorio(0, mokepones.length -1);
